@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julegaveidé-generator 🎁</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>🎄 Julegaveidé-generator 🎁</h1>
+    <p>Står du fast? Velg hvem gaven er til og hvor mye du vil bruke – Så får du en idé her!</p>
+  </header>
+
+  <main>
+    <!-- Filtre: brukeren velger mottaker, kategori og budsjett -->
+    <section class="boks" id="filtre">
+      <label for="mottaker">Hvem skal ha gave?</label>
+      <select id="mottaker">
+        <!-- Valgene fylles inn av JavaScript -->
+      </select>
+
+      <label for="kategori">Hvilken type gave vil du gi?</label>
+      <select id="kategori">
+        <!-- Valgene fylles inn av JavaScript -->
+      </select>
+
+      <label for="budsjett">Maks budsjett: <strong id="budsjettVerdi">500</strong> kr</label>
+      <input type="range" id="budsjett" min="0" max="2000" step="50" value="500">
+
+      <div class="knapper">
+        <button id="tilfeldigKnapp">✨ Gi meg en tilfeldig idé</button>
+        <button id="alleKnapp" class="sekundaer">📋 Vis alle som passer</button>
+      </div>
+    </section>
+
+    <!-- Her vises resultatene -->
+    <section id="resultat"></section>
+
+    <!-- Ønskelisten / favorittene -->
+    <section class="boks" id="favorittBoks">
+      <div class="favoritt-topp">
+        <h2>❤️ Mine favoritter (<span id="antallFavoritter">0</span>)</h2>
+        <button id="visSkjulKnapp" class="sekundaer">Skjul</button>
+      </div>
+      <div id="favorittInnhold">
+        <ul id="favorittListe"></ul>
+        <p id="totalPris"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
