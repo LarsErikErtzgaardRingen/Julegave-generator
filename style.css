@@ -1,0 +1,191 @@
+/* ===== Grunnoppsett ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(#0b3d2e, #062019);
+  color: #fdf6e3;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  color: #ffd166;
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+  z-index: 1; /* ligger over snÃ¸fnuggene */
+}
+
+/* ===== Bokser ===== */
+.boks {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid #c1121f;
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin: 0.8rem 0 0.3rem;
+  font-weight: bold;
+}
+
+select,
+input[type="range"] {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+/* ===== Knapper ===== */
+.knapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+button {
+  background: #c1121f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+
+button:hover {
+  background: #e63946;
+  transform: scale(1.05);
+}
+
+button.sekundaer {
+  background: #2a9d8f;
+}
+
+button.sekundaer:hover {
+  background: #38b2a3;
+}
+
+/* ===== Gavekort ===== */
+.gavekort {
+  background: #fdf6e3;
+  color: #222;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: dukkOpp 0.4s ease;
+}
+
+.gavekort .emoji {
+  font-size: 2.5rem;
+}
+
+.gavekort .info {
+  flex: 1;
+}
+
+.gavekort h3 {
+  margin: 0 0 0.3rem;
+}
+
+.gavekort p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Prisetiketter â€“ fargen settes av JavaScript via klassenavn */
+.etikett {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
+.etikett.gratis  { background: #8338ec; }
+.etikett.billig  { background: #2a9d8f; }
+.etikett.middels { background: #f4a261; }
+.etikett.dyr     { background: #c1121f; }
+
+.melding {
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+
+/* ===== Favoritter ===== */
+.favoritt-topp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favoritt-topp h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+#favorittListe {
+  list-style: none;
+  padding: 0;
+}
+
+#favorittListe li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+#favorittListe li button {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+}
+
+.skjult {
+  display: none;
+}
+
+/* ===== Animasjoner ===== */
+@keyframes dukkOpp {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* SnÃ¸fnugg lages av JavaScript */
+.snofnugg {
+  position: fixed;
+  top: -2rem;
+  color: white;
+  opacity: 0.8;
+  pointer-events: none; /* man kan klikke "gjennom" dem */
+  animation: fall linear infinite;
+  z-index: 0;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(360deg); }
+}
